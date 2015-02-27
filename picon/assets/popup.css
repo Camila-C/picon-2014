@@ -1,0 +1,24 @@
+@CHARSET "ISO-8859-1";
+
+#pop {
+   z-index:2;	/*Maneja las capas dentro del html (por defecto 0, con valor 2 nos estamos asegurando de que nuestro div este
+   				 por encima de todas las demás cosas).*/
+   position:absolute;
+   border: 1px solid #333333;
+   text-align:center;
+   background:#000000;
+}
+#cerrar {
+   float:right;
+   margin-right:5px;
+   cursor:pointer;	/*Con esto cambiamos la forma del curso, que sera la típica manito*/
+   font:Verdana, Arial, Helvetica, sans-serif;
+   font-size:12px;
+   font-weight:bold;
+   color:#FFFFFF;
+   background-color:#666666;
+   width:12px;
+   position:relative;
+   margin-top:-1px;
+   text-align:center;
+}
