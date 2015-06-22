@@ -21,11 +21,14 @@ Class Main extends Session_cont{
 		}
 		elseif ($this -> session -> userdata('rol') == "usuario"){
 			
+			$this -> load -> model ('Usuario_mod');
+			$data = $this -> Usuario_mod -> mapa();
+			
 			$this -> load -> view('header');
-			$this -> load -> view('user/principal');
+			$this -> load -> view('user/principal', $data);
 			$this -> load -> view('footer');
 		}
-		else {echo "error";
+		else { echo "error";
 		die();
 		}
 		

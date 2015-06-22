@@ -4,6 +4,7 @@
 	
 	<TITLE>Juguemos un picon</TITLE>
 	
+	<?php /*
 	<script src="http://maps.googleapis.com/maps/api/js">
 	</script>
 	
@@ -33,6 +34,19 @@
 		google.maps.event.addDomListener(window, 'load', initialize);
 
 	</script>
+	*/?>
+	
+	<script>
+          function check()
+          {
+             if (document.frm.uploadfile.value == '')
+                {
+                 alerta('Debe elegir un archivo');
+                }
+         
+          }
+        </script>
+
 	
 	<link rel="stylesheet" href="<?php base_url();?>assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php base_url();?>assets/bootstrap/css/bootstrap-theme.min.css">

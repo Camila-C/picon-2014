@@ -11,8 +11,8 @@
 					height="100px" width="100px"> <LABEL> <b> E-mail: <?php echo $this -> session -> userdata('email'); ?> </b>
 				</LABEL> <br> <INPUT TYPE="button" VALUE="desloguear"
 					ONCLICK="location= '<?php echo base_url();?>main/desloguear'">
-			</DIV>	<!-- cabecera -->
-		</DIV> <!-- row cabecera -->
+			</DIV>	<?php //cabecera?>
+		</DIV> <?php  //row cabecera ?>
 		
 <!-- ------------------ LATERAL IZQUIERDO ---------------------------------------------------------------------------------------------------- -->		
 		
@@ -32,24 +32,25 @@
 				<li><a href="<?php echo base_url()."usuarios_cont/mis_eventos"?>"> Mis eventos </a></li>
 				<li><a href=""> Crear evento </a></li>
 			</ul>
-		</DIV>	<!-- lateral izquierdo -->
+		</DIV>	<?php //lateral izquierdo ?>
 		
 <!-- --------------- CENTRO  ----------------------------------------------------------------------------------------------------------------- -->		
 	
-		<DIV class="col-lg-8"> <?php //centro ?>
-
-			<DIV id="googleMap" style="width: 50%; height: 480px; position : relative;"></div>
-
-		</DIV>
-		<!-- / centro -->
+		<DIV class="col-lg-8" align="center"> <?php //centro ?>
+		<h2> Mapa </h2>
+			<?php echo $map['js'];?>
+			<?php echo $map['html'];?>
+			
+		</DIV> <?php //centro ?>
+		
 		
 <!-- ----------- LATERAL DERECHO ------------------------------------------------------------------------------------------------------------- -->		
 		
 		<DIV class="col-lg-2"> <?php //derecha?>
 				<img src=<?php echo base_url()."assets/img/anuncie_aqui.jpg";?>>
-		</DIV>		<!-- lateral derecho -->
+		</DIV>		<?php //lateral derecho ?>
 		
 <!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->		
 	
 	</DIV> <?php //row?>
-</DIV>	<!-- principal -->
+</DIV>	<?php //principal ?>
