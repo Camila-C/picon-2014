@@ -15,7 +15,6 @@ class Verifylogin extends CI_Controller {
 		
 		if ($this->form_validation->run () == FALSE) {
 			// no pasa validacion
-			$this -> load -> view('header');
 			$this -> load -> view('login_view');
 			$this -> load -> view('footer');
 			

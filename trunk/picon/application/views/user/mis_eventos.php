@@ -1,6 +1,9 @@
 <BODY>
 <DIV class=" principal">
 	<DIV class = "row" >
+	
+<!-- ---------------CABECERA------------------------------------------------------------------------------------------------------------------ -->		
+	
 		<DIV class = "row">
 			<DIV class="col-lg-12"> <?php //cabecera?>
 				<img
@@ -10,6 +13,8 @@
 					ONCLICK="location= '<?php echo base_url();?>main/desloguear'">
 			</DIV>	<!-- cabecera -->
 		</DIV> <?php //row?>
+
+<!-- ------------------ LATERAL IZQUIERDO ---------------------------------------------------------------------------------------------------- -->		
 		
 		<DIV class="col-lg-2"> <?php //izquierda?>
 			<DIV class="clima">
@@ -28,7 +33,9 @@
 				<li><a href=""> Crear evento </a></li>
 			</ul>
 		</DIV>	<!-- lateral izquierdo -->
-
+		
+<!-- --------------- CENTRO  ----------------------------------------------------------------------------------------------------------------- -->		
+		
 		<DIV class="col-lg-8"> <?php //centro?>
 
 			<ul class = "nav nav-tabs" role="tablist">
@@ -36,18 +43,21 @@
 				<li><a href="<?php echo base_url()."usuarios_cont/eventos_proximos"?>"> Proximos </a></li>
 				<li><a href="<?php echo base_url()."usuarios_cont/eventos_pendientes"?>"> Pendientes </a></li>				
 			</ul>
-			<?php echo "centro?";?>
-			<?php echo "Dar de alta un nuevo evento: ";?>
-			<INPUT TYPE = "button" VALUE = "Alta" ONCLICK = "location= '<?php echo base_url();?>usuarios_cont/alta_evento'">
-		</DIV>
-		<!-- / centro -->
 
+			<a href="<?php echo base_url()."usuarios_cont/alta_evento"?>"> Dar de alta un nuevo evento </a>
+		</DIV>
+		<div align="center">
+			<h2> Mapa </h2>
+			<?php echo $map['js'];?>
+			<?php echo $map['html'];?>
+		</div>
+		<!-- / centro -->
+		
+<!-- ----------- LATERAL DERECHO ------------------------------------------------------------------------------------------------------------- -->		
+		
 		<DIV class="col-lg-2"> <?php //derecha?>
 				<img src=<?php echo base_url()."assets/img/anuncie_aqui.jpg";?>>
 		</DIV>
 		<!-- lateral derecho -->
 	</DIV> <?php //row?>
 </DIV>	<!-- principal -->
-
-
-

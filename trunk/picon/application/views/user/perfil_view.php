@@ -1,13 +1,18 @@
  <body>
 <DIV class =" container">
-		 <DIV class="col-lg-12"> <?php //cabecera?>
+<DIV class = "row"> <?php //row ppl?>
+	<DIV class = "row"> <?php //cabecera?>
+		<DIV class="col-lg-12"> <?php //cabecera?>
 			<img
 				src=<?php echo base_url().$this -> session -> userdata('imagen'); ?>
 				height="100px" width="100px"> <LABEL> <b> E-mail: <?php echo $this -> session -> userdata('email'); ?> </b>
 			</LABEL> <br> <INPUT TYPE="button" VALUE="desloguear"
 				ONCLICK="location= '<?php echo base_url();?>main/desloguear'">
 		</DIV>	<!-- cabecera -->
-		
+	</DIV> <?php //row cabecera?>
+	
+<!-- --------------- CABECERA ------------------------------------------------------------------------------------------------------------------- -->
+	
 		<DIV class="col-lg-2"> <?php //izquierda?>
 			<DIV class ="clima">
 				<!-- www.TuTiempo.net - Ancho:204px - Alto:81px -->
@@ -22,7 +27,9 @@
 				<li><a href=""> Crear evento </a></li>
 			</ul>
 		</DIV> <!-- lateral izquierdo -->
-	 
+		
+<!-- --------------- LATERAL IZQUIERDO ---------------------------------------------------------------------------------------------------------- -->
+		
 	<DIV class="col-lg-8"> <?php //centro?> 
 	   <h1>Mi perfil</h1>
 	   
@@ -34,7 +41,7 @@
 		<INPUT type = "hidden" value = " <?php echo $this -> session -> userdata('id'); ?>" name = "id">
 		
 		<input type="file" name="userfile" id="archivo" value = "cambiar imagen"/> 
-		<input type="submit" name="boton" value="Subir" />    
+		<input type="submit" name="boton" value="Subir" onclick= "<?php echo("<script> check();</script>")?>">    
 	   	
 	   	</FORM>
 	   	
@@ -53,8 +60,26 @@
 	   	<INPUT TYPE = "button" VALUE = "Modificar datos" ONCLICK = "location= '<?php echo base_url();?>usuarios_cont/modificacion'">	   	
 	</DIV> <!-- / centro -->
 	
+	<div class="n">
+	    <div id="fb-root" class="fb_reset">
+	        <div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
+	        </div>
+	    </div>
+	    <script src="http://connect.facebook.net/es_LA/all.js#appId=APP_ID&amp;xfbml=1" type="text/javascript">
+	</script><script type="text/javascript" language="javascript">
+	//<![CDATA[
+	        document.write("<fb:comments href='http://localhost/picon/usuarios_cont/index' num_posts='100' width='700'><\/fb:comments>");
+	        //]]> 
+	    </script>
+	</div>
+
+<!-- --------------- CENTRO---------------------------------------------------------------------------------------------------------------------- -->
+	
 	<DIV class="col-lg-2"> <?php //derecha?>
 		<img src = <?php echo base_url()."assets/img/anuncie_aqui.jpg";?> >
 	</DIV> <!-- lateral derecho -->
+	
+<!-- --------------- LATERAL DERECHO ------------------------------------------------------------------------------------------------------------ -->
+	
 </DIV> <!-- principal -->
    

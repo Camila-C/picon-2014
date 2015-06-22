@@ -1,3 +1,16 @@
+<HTML>
+<HEAD>
+	<META charset="UTF-8" />
+	
+	<TITLE>Juguemos un picon</TITLE>
+	
+	<link rel="stylesheet" href="<?php base_url();?>assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php base_url();?>assets/bootstrap/css/bootstrap-theme.min.css">
+
+	<script src="<?php base_url();?>assets/bootstrap/js/jquery-1.10.1.min.js"></script>
+	<script src="<?php base_url();?>assets/bootstrap/js/bootstrap.min.js"></script>
+</HEAD>
+
 <BODY>
 <DIV class =" container-fluid">
 <DIV class = "row">

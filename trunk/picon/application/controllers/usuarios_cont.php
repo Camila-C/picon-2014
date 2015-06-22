@@ -129,14 +129,6 @@ class Usuarios_cont extends CI_Controller {
 			die();
 		}
 	}//end invitaciones
-
-	function mis_eventos(){
-		$this->load->model ( 'Usuario_mod' );
-			
-		$this->load->view ( 'header' );
-		$this->load->view ( 'user/mis_eventos' );
-		$this->load->view ( 'footer' );
-	}
 	
 	function eventos_sucedidos(){
 		$this->load->model ( 'Usuario_mod' );
@@ -170,6 +162,17 @@ class Usuarios_cont extends CI_Controller {
 		$this->load->view ( 'user/eventos_pendientes', $x );
 		$this->load->view ( 'footer' );
 	}
+	
+	function mis_eventos(){
+		$this -> load -> model ('Usuario_mod');
+		
+		$data = $this -> Usuario_mod -> mapa();
+		
+		$this -> load -> view('header', $data);
+		$this -> load -> view('user/mis_eventos', $data);
+		$this -> load -> view('footer');
+	}
+
 }//end class usuario_cont
 	?> 
 	

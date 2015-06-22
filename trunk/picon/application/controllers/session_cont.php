@@ -20,7 +20,6 @@ Class Session_cont extends  CI_Controller{
 // 			$this -> load -> view('footer');
 // 		}//end else
 	if($this -> session -> userdata('logged_in') == FALSE){
-		$this -> load -> view('header');
 		$this -> load -> view('login_view');
 		$this -> load -> view('footer');
 	}

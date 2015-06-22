@@ -149,5 +149,43 @@ Class Usuario_mod extends CI_Model{
 			
 	}
 	
+	function mapa(){
+		$this -> load -> library('googlemaps');
+		
+		$config = array();
+		$config['center'] = '-40.811885, -62.996184';
+		$config['zoom'] = '13';
+		$config['directions'] = true;
+		$config['map_height'] = '65%';
+		$config['map_width'] = '590px';
+		$config['map_type'] = 'ROADMAP';		//tipo de mapa
+		$config['scrollwheel'] = true;			//hacer zoom con la ruedita
+		$config['keyboardShortcuts'] = true;	//teclas de navegacion y +/-
+		$config['draggable'] = true;			//permite arrastrar el mapa
+		//$config['onclick'] = agregar marker
+		//$config['onrightclick'] = despliega menu
+		
+		
+		/*$polyline = array();
+		 $polyline['points'] = array('-40.8025484,-62.9985775', '-40.8057766,-62.9976119', '-40.8105195,-62.9956438');
+		
+		$this -> googlemaps -> add_polyline($polyline);*/
+		
+		
+		
+		$this -> googlemaps -> initialize($config);
+		
+		$marker = array();
+		$marker['title'] = 'marcador_1'; //se muestra al pasar el mouse por encima
+		$marker['position'] = '-40.7946704,-62.9872892';
+		$marker['draggable'] = true;
+		$marker['infowindow_content'] = 'Esto es una infowindow';
+		
+		$this -> googlemaps -> add_marker($marker);
+		
+		$data['map'] = $this -> googlemaps -> create_map();
+		
+		return $data;
+	} //mapa
 }//clase
 ?>
