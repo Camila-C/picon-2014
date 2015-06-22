@@ -59,20 +59,23 @@ class Evento_mod extends CI_Model {
 	function listar_sucedidos($creador) {
 		// lista eventos ya sucedidos, por ID de creador. Si ID == 0, lista todos 
 		if (!($creador == null)){
-			$this -> db -> select('e.id, e.nombre, e.fecha_inicio, e.fecha_fin, e.hora_inicio, e.hora_fin, c.nombre as nombre_cancha, e.privado, e.descripcion, e.participantes');
-			$this -> db -> from('evento as e');
-			$this -> db -> join( 'cancha as c', 'c.id = e.cancha');
-			$this -> db -> where('e.fecha_fin < current_date() and e.hora_fin < current_time');
-			$this -> db -> order_by('e.id', 'asc');
-			$query = $this -> db -> get ();
+			if ($creador == 0){
+				$this -> db -> select('e.id, e.nombre, e.fecha_inicio, e.fecha_fin, e.hora_inicio, e.hora_fin, c.nombre as nombre_cancha, e.privado, e.descripcion, e.participantes');
+				$this -> db -> from('evento as e');
+				$this -> db -> join( 'cancha as c', 'c.id = e.cancha');
+				$this -> db -> where('e.fecha_fin < current_date() and e.hora_fin < current_time');
+				$this -> db -> order_by('e.id', 'asc');
+				$query = $this -> db -> get ();
+			}
+			else {
+				$this -> db -> select('e.id, e.nombre, e.fecha_inicio, e.fecha_fin, e.hora_inicio, e.hora_fin, c.nombre as nombre_cancha, e.privado, e.descripcion, e.participantes');
+				$this -> db -> from('evento as e');
+				$this -> db -> join( 'cancha as c', 'c.id = e.cancha');
+				$this -> db -> where('e.id = ', $creador, 'and e.fecha_fin < current_date() and e.hora_fin < current_time()');
+				$this -> db -> order_by('e.id', 'asc');
+				$query = $this -> db -> get ();
+			}
 		}
-		else 
-			$this -> db -> select('e.id, e.nombre, e.fecha_inicio, e.fecha_fin, e.hora_inicio, e.hora_fin, c.nombre as nombre_cancha, e.privado, e.descripcion, e.participantes');
-			$this -> db -> from('evento as e');
-			$this -> db -> join( 'cancha as c', 'c.id = e.cancha');
-			$this -> db -> where('e.id = ', $creador, 'and e.fecha_fin < current_date() and e.hora_fin < current_time()');
-			$this -> db -> order_by('e.id', 'asc');
-			$query = $this -> db -> get ();
 		
 		return $query -> result();
 	
@@ -81,20 +84,23 @@ class Evento_mod extends CI_Model {
 	function listar_actuales($creador) {
 		// lista eventos ya sucedidos, por ID de creador. Si ID == 0, lista todos
 		if (!($creador == null)){
-			$this -> db -> select('e.id, e.nombre, e.fecha_inicio, e.fecha_fin, e.hora_inicio, e.hora_fin, c.nombre as nombre_cancha, e.privado, e.descripcion, e.participantes');
-			$this -> db -> from('evento as e');
-			$this -> db -> join( 'cancha as c', 'c.id = e.cancha');
-			$this -> db -> where('current_date() between (e.fecha_inicio and e.fecha_fin) and current_time() between e.hora_inicio and e.hora_fin');
-			$this -> db -> order_by('e.id', 'asc');
-			$query = $this -> db -> get ();
+			if ($creador == 0){ 
+				$this -> db -> select('e.id, e.nombre, e.fecha_inicio, e.fecha_fin, e.hora_inicio, e.hora_fin, c.nombre as nombre_cancha, e.privado, e.descripcion, e.participantes');
+				$this -> db -> from('evento as e');
+				$this -> db -> join( 'cancha as c', 'c.id = e.cancha');
+				$this -> db -> where('current_date() between (e.fecha_inicio and e.fecha_fin) and current_time() between e.hora_inicio and e.hora_fin');
+				$this -> db -> order_by('e.id', 'asc');
+				$query = $this -> db -> get ();
+			}
+			else {
+				$this -> db -> select('e.id, e.nombre, e.fecha_inicio, e.fecha_fin, e.hora_inicio, e.hora_fin, c.nombre as nombre_cancha, e.privado, e.descripcion, e.participantes');
+				$this -> db -> from('evento as e');
+				$this -> db -> join( 'cancha as c', 'c.id = e.cancha');
+				$this -> db -> where('e.id = ', $creador, 'and current_date() between (e.fecha_inicio and e.fecha_fin) and current_time() between e.hora_inicio and e.hora_fin');
+				$this -> db -> order_by('e.id', 'asc');
+				$query = $this -> db -> get ();
+			}
 		}
-		else
-			$this -> db -> select('e.id, e.nombre, e.fecha_inicio, e.fecha_fin, e.hora_inicio, e.hora_fin, c.nombre as nombre_cancha, e.privado, e.descripcion, e.participantes');
-			$this -> db -> from('evento as e');
-			$this -> db -> join( 'cancha as c', 'c.id = e.cancha');
-			$this -> db -> where('e.id = ', $creador, 'and current_date() between (e.fecha_inicio and e.fecha_fin) and current_time() between e.hora_inicio and e.hora_fin');
-			$this -> db -> order_by('e.id', 'asc');
-			$query = $this -> db -> get ();
 	
 		return $query -> result();
 	
@@ -103,21 +109,23 @@ class Evento_mod extends CI_Model {
 	function listar_proximos($creador) {
 		// lista eventos ya sucedidos, por ID de creador. Si ID == 0, lista todos
 		if (!($creador == null)){
-			$this -> db -> select('e.id, e.nombre, e.fecha_inicio, e.fecha_fin, e.hora_inicio, e.hora_fin, c.nombre as nombre_cancha, e.privado, e.descripcion, e.participantes');
-			$this -> db -> from('evento as e');
-			$this -> db -> join( 'cancha as c', 'c.id = e.cancha');
-			$this -> db -> where('fecha_fin <= current_date() and hora_fin < current_time()');
-			$this -> db -> order_by('e.id', 'asc');
-			$query = $this -> db -> get ();
+			if ($creador == 0){
+				$this -> db -> select('e.id, e.nombre, e.fecha_inicio, e.fecha_fin, e.hora_inicio, e.hora_fin, c.nombre as nombre_cancha, e.privado, e.descripcion, e.participantes');
+				$this -> db -> from('evento as e');
+				$this -> db -> join( 'cancha as c', 'c.id = e.cancha');
+				$this -> db -> where('fecha_fin <= current_date() and hora_fin < current_time()');
+				$this -> db -> order_by('e.id', 'asc');
+				$query = $this -> db -> get ();
+			}
+			else{
+				$this -> db -> select('e.id, e.nombre, e.fecha_inicio, e.fecha_fin, e.hora_inicio, e.hora_fin, c.nombre as nombre_cancha, e.privado, e.descripcion, e.participantes');
+				$this -> db -> from('evento as e');
+				$this -> db -> join( 'cancha as c', 'c.id = e.cancha');
+				$this -> db -> where('e.id = ', $creador, 'and fecha_fin <= current_date() and hora_fin < current_time()');
+				$this -> db -> order_by('e.id', 'asc');
+				$query = $this -> db -> get ();
+			}
 		}
-		else
-			$this -> db -> select('e.id, e.nombre, e.fecha_inicio, e.fecha_fin, e.hora_inicio, e.hora_fin, c.nombre as nombre_cancha, e.privado, e.descripcion, e.participantes');
-			$this -> db -> from('evento as e');
-			$this -> db -> join( 'cancha as c', 'c.id = e.cancha');
-			$this -> db -> where('e.id = ', $creador, 'and fecha_fin <= current_date() and hora_fin < current_time()');
-			$this -> db -> order_by('e.id', 'asc');
-			$query = $this -> db -> get ();
-	
 		return $query -> result();
 	
 	} // listar_actuales
@@ -158,7 +166,24 @@ class Evento_mod extends CI_Model {
 		}
 	} // modificacion
 	
+	function modificar_estado($estado)
+	//estado puede ser: confirmada, rechazada, pendiente
+	{
+		if (! ($estado == null)) {
+			$update = array(
+					'estado' => $estado
+			);
+			
+			$query = $this -> db -> update ( 'evento', $update ); 
 	
+			if ($query) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}//modificar_estado
+		
 	function enviar_email($data){
 		$this -> load -> library('email');
 		
