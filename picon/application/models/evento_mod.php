@@ -157,7 +157,8 @@ class Evento_mod extends CI_Model {
 			}
 		}
 	} // modificacion
-		
+	
+	
 	function enviar_email($data){
 		$this -> load -> library('email');
 		
